@@ -28,3 +28,84 @@ The main goals were to:
 Install dependencies:
 ```bash
 pip install pandas numpy
+```
+
+🧾 Steps Performed
+1️⃣ Importing Libraries and Dataset
+
+```bash
+import pandas as pd
+import numpy as np
+
+# Load the dataset (replace with your file path)
+df = pd.read_csv('netflix_titles.csv')
+print(df.head())
+```
+
+2️⃣ Checking for Missing Values
+
+```bash
+print("Missing Values Before Cleaning:")
+print(df.isnull().sum())
+```
+
+3️⃣ Removing Duplicate Records
+
+```bash
+df_cleaned = df.drop_duplicates()
+```
+
+4️⃣ Standardizing Data
+
+```bash
+# Convert country names to lowercase
+df_cleaned['country'] = df_cleaned['country'].str.lower()
+
+# Convert date formats to consistent type
+df_cleaned['date_added'] = pd.to_datetime(df_cleaned['date_added'], errors='coerce', format='%B %d, %Y')
+
+# Rename column headers (lowercase, replace spaces with underscores)
+df_cleaned.columns = df_cleaned.columns.str.strip().str.lower().str.replace(' ', '_')
+```
+
+5️⃣ Fixing Data Types
+
+```bash
+df_cleaned['release_year'] = df_cleaned['release_year'].astype('Int64')
+```
+
+6️⃣ Handling Missing Values
+
+```bash
+df_cleaned['country'] = df_cleaned['country'].fillna('unknown')
+df_cleaned['director'] = df_cleaned['director'].fillna('unknown')
+df_cleaned['cast'] = df_cleaned['cast'].fillna('unknown')
+df_cleaned['rating'] = df_cleaned['rating'].fillna('Not Rated')
+df_cleaned['duration'] = df_cleaned['duration'].fillna('unknown')
+```
+
+7️⃣ Final Dataset Check and Save
+
+```bash
+print("\nMissing Values After Cleaning:")
+print(df_cleaned.isnull().sum())
+
+print("\nCleaned Dataset Info:")
+print(df_cleaned.info())
+
+# Save cleaned dataset (optional)
+output_path = "netflix_titles_cleaned.csv"
+df_cleaned.to_csv(output_path, index=False)
+print(f"\n✅ Cleaned dataset saved as: {output_path}")
+```
+
+📂 Project Structure
+
+```bash
+Netflix-Data-Cleaning/
+├── netflix_titles.csv              # Original raw dataset
+├── Task1.py                        # The Python data cleaning script
+└── netflix_titles_cleaned.csv      # The final cleaned dataset
+```
+
+
