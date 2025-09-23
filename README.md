@@ -121,3 +121,82 @@ Netflix-Data-Cleaning/
 This task focuses on creating interactive data visualizations using Tableau to analyze sales performance and derive business insights from a superstore dataset.
 
 ---
+
+### 📌 Project Overview
+In this task, I created comprehensive dashboards and visualizations to:
+
+Analyze sales trends across different regions
+Identify top-performing product categories
+Understand customer segments and their buying patterns
+Provide actionable insights for business decisions
+
+---
+
+### 🛠️ Tools & Technologies Used
+
+Tableau Desktop – for interactive data visualization
+Microsoft Excel – for initial data exploration
+PDF Documentation – for detailed analysis methodology
+
+
+### 📁 Files Included
+
+1)Book.pdf
+
+Comprehensive documentation of the analysis process
+Includes methodology, insights, and recommendations
+
+2)Book.twbx
+
+Interactive Tableau workbook with multiple dashboards
+Contains various visualizations including:
+Sales by Region
+Product Category Performance
+Time Series Analysis
+Customer Segment Analysis
+
+3)Sample - Superstore (1).xls
+
+Raw dataset containing 4 years of sales data
+Includes information on orders, products, customers, and regions
+
+### 🎯 Key Insights Discovered
+Regional Performance: Identified top-performing regions and underperforming areas
+Product Analysis: Found which product categories drive the most profit
+Seasonal Trends: Discovered patterns in sales throughout the year
+Customer Segments: Analyzed which customer types contribute most to revenue
+
+### 💡 Business Recommendations
+Based on the analysis, I provided recommendations for:
+
+Inventory management optimization
+Regional marketing strategies
+Product portfolio decisions
+Customer retention strategies
+
+### 🚀 How to View the Analysis
+
+1)Excel Data: Open Sample - Superstore (1).xls to explore the raw data
+2)Tableau Dashboards: Open Book.twbx in Tableau Desktop/Reader
+3)Documentation: Read Book.pdf for detailed insights and methodology
+
+### 📸 Dashboard Preview
+
+The Tableau workbook includes:
+
+Executive Summary Dashboard
+Regional Performance Analysis
+Product Category Deep Dive
+Customer Segment Analysis
+Time Series Trends
+
+
+### 📂 Project Structure
+
+```bash
+TASK 2/
+├── Book.pdf                        # Analysis documentation
+├── Book.twbx                       # Tableau workbook with dashboards
+├── Sample - Superstore (1).xls     # Raw superstore sales data
+└── README.md                       # This file
+```
