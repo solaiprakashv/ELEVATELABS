@@ -1,4 +1,10 @@
-# 🎬 Movie Dataset Cleaning - Task 1
+# 🚀 ELEVATELABS - Data Analysis Learning Journey
+
+This repository contains my daily tasks and projects as part of my data analysis and visualization learning path with ElevateLabs.
+
+---
+
+## 🎬 Movie Dataset Cleaning - Task 1
 
 This project demonstrates **data cleaning techniques** using Python and Pandas on a movie dataset.
 It is part of my learning journey to improve my **data analysis and machine learning skills**.
@@ -109,3 +115,9 @@ Netflix-Data-Cleaning/
 ```
 
 
+
+# 📊 Superstore Sales Analysis - Task 2
+
+This task focuses on creating interactive data visualizations using Tableau to analyze sales performance and derive business insights from a superstore dataset.
+
+---
