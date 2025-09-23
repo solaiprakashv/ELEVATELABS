@@ -11,7 +11,7 @@ It is part of my learning journey to improve my **data analysis and machine lear
 
 ---
 
-## 📌 Project Overview
+### 📌 Project Overview
 
 In this task, I took a raw movie dataset and cleaned it step by step.
 The main goals were to:
@@ -23,7 +23,7 @@ The main goals were to:
 
 ---
 
-## 🛠️ Tools & Libraries Used
+### 🛠️ Tools & Libraries Used
 
 - **Python 3**
 - **Pandas** – for data manipulation
@@ -116,7 +116,7 @@ Netflix-Data-Cleaning/
 
 
 
-# 📊 Superstore Sales Analysis - Task 2
+## 📊 Superstore Sales Analysis - Task 2
 
 This task focuses on creating interactive data visualizations using Tableau to analyze sales performance and derive business insights from a superstore dataset.
 
