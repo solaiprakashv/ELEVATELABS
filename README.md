@@ -138,6 +138,7 @@ Tableau Desktop – for interactive data visualization
 Microsoft Excel – for initial data exploration
 PDF Documentation – for detailed analysis methodology
 
+---
 
 ### 📁 Files Included
 
@@ -160,11 +161,15 @@ Customer Segment Analysis
 Raw dataset containing 4 years of sales data
 Includes information on orders, products, customers, and regions
 
+---
+
 ### 🎯 Key Insights Discovered
 Regional Performance: Identified top-performing regions and underperforming areas
 Product Analysis: Found which product categories drive the most profit
 Seasonal Trends: Discovered patterns in sales throughout the year
 Customer Segments: Analyzed which customer types contribute most to revenue
+
+---
 
 ### 💡 Business Recommendations
 Based on the analysis, I provided recommendations for:
@@ -174,11 +179,17 @@ Regional marketing strategies
 Product portfolio decisions
 Customer retention strategies
 
+---
+
 ### 🚀 How to View the Analysis
 
 1)Excel Data: Open Sample - Superstore (1).xls to explore the raw data
+
 2)Tableau Dashboards: Open Book.twbx in Tableau Desktop/Reader
+
 3)Documentation: Read Book.pdf for detailed insights and methodology
+
+---
 
 ### 📸 Dashboard Preview
 
@@ -190,6 +201,7 @@ Product Category Deep Dive
 Customer Segment Analysis
 Time Series Trends
 
+---
 
 ### 📂 Project Structure
 
