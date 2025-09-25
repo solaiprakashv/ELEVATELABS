@@ -213,3 +213,91 @@ TASK 2/
 ├── Sample - Superstore (1).xls     # Raw superstore sales data
 └── README.md                       # This file
 ```
+
+
+---
+---
+
+## 📈 Financial Sales Analysis - Task 3
+
+This task focuses on analyzing **financial sales data** using Tableau and presenting insights through interactive dashboards and reports.
+
+---
+
+### 📌 Project Overview
+
+In this task, I worked on a coffee shop sales dataset and performed:
+
+- Data preparation and cleaning
+- Trend analysis on daily, weekly, and monthly sales
+- Customer segmentation and product performance insights
+- Creation of interactive dashboards for business decision-making
+
+---
+
+### 🛠️ Tools & Technologies Used
+
+- **Tableau Desktop** – for building dashboards and interactive visualizations  
+- **Microsoft Excel / CSV** – for data validation and preprocessing  
+- **PDF Documentation** – summarizing the methodology and insights  
+
+---
+
+### 📁 Files Included
+
+1. **Financial Sales Analysis.pdf**  
+   - Detailed documentation of methodology, KPIs, and insights
+
+2. **Financial Sales Analysis.twbx**  
+   - Interactive Tableau workbook containing:
+     - Sales Trends Dashboard  
+     - Category & Product Performance Analysis  
+     - Regional/Store-Level Breakdown  
+     - Customer Insights  
+
+3. **dataset/Coffe_sales.csv**  
+   - The raw sales dataset used for analysis  
+
+4. **~Financial Sales Analysis__2212.twbr**  
+   - Tableau backup/temporary file (useful for recovery)
+
+---
+
+### 🎯 Key Insights Discovered
+
+- **Sales Trends:** Identified peak hours, days, and months for maximum revenue  
+- **Product Analysis:** Highlighted top-performing coffee products and low-performing items  
+- **Customer Behavior:** Segmented customers by frequency and spend  
+- **Revenue Optimization:** Suggested focus on high-profit categories and seasonal promotions  
+
+---
+
+### 💡 Business Recommendations
+
+Based on the insights, I recommended:
+
+- **Stock Optimization:** Increase inventory for high-demand periods  
+- **Targeted Campaigns:** Run promotions during low-performing months  
+- **Menu Adjustments:** Focus marketing on high-profit products  
+- **Customer Loyalty Programs:** Reward frequent buyers to improve retention  
+
+---
+
+### 🚀 How to View the Analysis
+
+1. **Dataset:** Open `dataset/Coffe_sales.csv` to explore raw data  
+2. **Tableau Dashboard:** Open `Financial Sales Analysis.twbx` in Tableau  
+3. **Documentation:** Review `Financial Sales Analysis.pdf` for detailed insights  
+
+---
+
+### 📂 Project Structure
+
+```bash
+TASK 3/
+├── Financial Sales Analysis.pdf          # Detailed analysis documentation
+├── Financial Sales Analysis.twbx         # Tableau workbook with dashboards
+├── dataset/
+│   └── Coffe_sales.csv                   # Raw coffee sales dataset
+└── ~Financial Sales Analysis__2212.twbr  # Tableau backup file
+```
