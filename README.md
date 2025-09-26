@@ -338,7 +338,7 @@ This project strengthens **SQL querying skills**, understanding of **relational 
 
 1️⃣ **Database Setup**
 
-
+```sql
 -- Create tables
 CREATE TABLE orders (
     OrderID TEXT,
