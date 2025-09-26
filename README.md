@@ -338,7 +338,7 @@ This project strengthens **SQL querying skills**, understanding of **relational 
 
 1️⃣ **Database Setup**
 
-```sql
+
 -- Create tables
 CREATE TABLE orders (
     OrderID TEXT,
@@ -422,12 +422,11 @@ SELECT * FROM RegionalPerformance
 ORDER BY Difference DESC;
 6️⃣ Optimization
 
-sql
-Copy code
 -- Indexes for faster queries
 CREATE INDEX idx_orders_orderid ON orders(OrderID);
 CREATE INDEX idx_orderdetails_orderid ON order_details(OrderID);
 CREATE INDEX idx_orders_region ON orders(Region);
+---
 🎯 Key Insights
 Regions with highest and lowest sales
 
@@ -436,7 +435,7 @@ Products contributing most to revenue
 Regions meeting or missing sales targets
 
 Summary view (RegionalPerformance) provides quick decision-making insights
-
+---
 💡 Business Recommendations
 Focus marketing and promotions on low-performing regions
 
@@ -445,24 +444,18 @@ Maintain inventory for high-demand products
 Track performance against targets regularly for better planning
 
 Use the SQL workflow as a repeatable analysis pipeline
-
+---
 🚀 How to Run Analysis
 Open VS Code Terminal or Command Prompt
 
 Navigate to the dataset folder:
 
-bash
-Copy code
 cd "C:\Users\solai prakash\Videos\ELEVATELABS\TASK 4\dataset"
 Start SQLite and create the database:
 
-bash
-Copy code
 sqlite3 sales.db
 Import CSVs and run the SQL script:
 
-sql
-Copy code
 .mode csv
 .import "List of Orders.csv" orders
 .import "Order Details.csv" order_details
@@ -472,7 +465,7 @@ Copy code
 Output will be saved in output.txt (all queries and results)
 
 📂 Project Structure
-
+```bash
 TASK 4/
 ├── dataset/
 │   ├── List of Orders.csv
@@ -484,4 +477,4 @@ TASK 4/
 │   ├── output.txt          # Query results
 │   └── Screenshots/        # Screenshots of terminal outputs
 └── README.md               # Project documentation
-
+```
