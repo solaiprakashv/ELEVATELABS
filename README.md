@@ -365,6 +365,8 @@ CREATE TABLE sales_target (
 .import "List of Orders.csv" orders
 .import "Order Details.csv" order_details
 .import "Sales target.csv" sales_target
+```
+```sql
 2️⃣ Basic Queries & Filtering
 
 sql
@@ -378,6 +380,8 @@ WHERE OrderID IN (
     SELECT OrderID FROM order_details
     WHERE Sales > (SELECT AVG(Sales) FROM order_details)
 );
+```
+```sql
 3️⃣ Aggregation & Grouping
 
 sql
@@ -388,6 +392,8 @@ FROM orders o
 JOIN order_details od ON o.OrderID = od.OrderID
 GROUP BY o.Region
 ORDER BY TotalSales DESC;
+```
+```sql
 4️⃣ Joins
 
 sql
@@ -404,6 +410,8 @@ FROM orders o
 LEFT JOIN order_details od ON o.OrderID = od.OrderID
 LEFT JOIN sales_target st ON o.Region = st.Region
 GROUP BY o.Region;
+```
+```sql
 5️⃣ Creating Views
 
 sql
@@ -420,12 +428,15 @@ GROUP BY o.Region;
 -- Query the view
 SELECT * FROM RegionalPerformance
 ORDER BY Difference DESC;
+```
+```sql
 6️⃣ Optimization
 
 -- Indexes for faster queries
 CREATE INDEX idx_orders_orderid ON orders(OrderID);
 CREATE INDEX idx_orderdetails_orderid ON order_details(OrderID);
 CREATE INDEX idx_orders_region ON orders(Region);
+```
 ---
 🎯 Key Insights
 Regions with highest and lowest sales
