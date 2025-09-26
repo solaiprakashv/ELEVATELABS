@@ -301,3 +301,187 @@ TASK 3/
 │   └── Coffe_sales.csv                   # Raw coffee sales dataset
 └── ~Financial Sales Analysis__2212.twbr  # Tableau backup file
 ```
+
+
+---
+---
+## 📈 Financial Sales Analysis with SQLite - Task 4
+
+This task demonstrates **data analysis using SQLite** on a financial sales dataset.  
+It focuses on querying, joining tables, aggregating data, and creating views for **insightful business analysis**.
+
+---
+
+### 📌 Project Overview
+
+In this task, I worked on sales data of multiple regions and products to:
+
+- Import and clean CSV datasets into SQLite  
+- Perform **SQL queries** including selection, filtering, aggregation, and joins  
+- Compare **regional performance** versus sales targets  
+- Create **views for analysis** and generate outputs for reporting  
+
+This project strengthens **SQL querying skills**, understanding of **relational databases**, and **data-driven decision making**.
+
+---
+
+### 🛠️ Tools & Technologies Used
+
+- **SQLite 3** – for database management and queries  
+- **CSV Datasets** – raw sales data, order details, and sales targets  
+- **VS Code / SQLite CLI** – to run queries and manage the database  
+- **Output Files** – SQL query outputs and screenshots  
+
+---
+
+🧾 Steps Performed  
+
+1️⃣ **Database Setup**
+
+```sql
+-- Create tables
+CREATE TABLE orders (
+    OrderID TEXT,
+    OrderDate TEXT,
+    CustomerName TEXT,
+    Region TEXT,
+    City TEXT
+);
+
+CREATE TABLE order_details (
+    OrderID TEXT,
+    ProductName TEXT,
+    Quantity INTEGER,
+    Sales REAL
+);
+
+CREATE TABLE sales_target (
+    Region TEXT,
+    Target REAL
+);
+
+-- Import CSV data
+.mode csv
+.import "List of Orders.csv" orders
+.import "Order Details.csv" order_details
+.import "Sales target.csv" sales_target
+2️⃣ Basic Queries & Filtering
+
+sql
+Copy code
+-- Select first 10 orders
+SELECT * FROM orders LIMIT 10;
+
+-- Orders with above-average sales
+SELECT * FROM orders
+WHERE OrderID IN (
+    SELECT OrderID FROM order_details
+    WHERE Sales > (SELECT AVG(Sales) FROM order_details)
+);
+3️⃣ Aggregation & Grouping
+
+sql
+Copy code
+-- Total sales by region
+SELECT o.Region, SUM(od.Sales) AS TotalSales
+FROM orders o
+JOIN order_details od ON o.OrderID = od.OrderID
+GROUP BY o.Region
+ORDER BY TotalSales DESC;
+4️⃣ Joins
+
+sql
+Copy code
+-- Join orders and order_details
+SELECT o.OrderID, o.Region, od.ProductName, od.Quantity, od.Sales
+FROM orders o
+INNER JOIN order_details od ON o.OrderID = od.OrderID
+LIMIT 10;
+
+-- Left join with sales_target
+SELECT o.Region, SUM(od.Sales) AS TotalSales, st.Target
+FROM orders o
+LEFT JOIN order_details od ON o.OrderID = od.OrderID
+LEFT JOIN sales_target st ON o.Region = st.Region
+GROUP BY o.Region;
+5️⃣ Creating Views
+
+sql
+Copy code
+-- View for regional performance
+CREATE VIEW RegionalPerformance AS
+SELECT o.Region, SUM(od.Sales) AS TotalSales, st.Target,
+       (SUM(od.Sales) - st.Target) AS Difference
+FROM orders o
+JOIN order_details od ON o.OrderID = od.OrderID
+LEFT JOIN sales_target st ON o.Region = st.Region
+GROUP BY o.Region;
+
+-- Query the view
+SELECT * FROM RegionalPerformance
+ORDER BY Difference DESC;
+6️⃣ Optimization
+
+sql
+Copy code
+-- Indexes for faster queries
+CREATE INDEX idx_orders_orderid ON orders(OrderID);
+CREATE INDEX idx_orderdetails_orderid ON order_details(OrderID);
+CREATE INDEX idx_orders_region ON orders(Region);
+🎯 Key Insights
+Regions with highest and lowest sales
+
+Products contributing most to revenue
+
+Regions meeting or missing sales targets
+
+Summary view (RegionalPerformance) provides quick decision-making insights
+
+💡 Business Recommendations
+Focus marketing and promotions on low-performing regions
+
+Maintain inventory for high-demand products
+
+Track performance against targets regularly for better planning
+
+Use the SQL workflow as a repeatable analysis pipeline
+
+🚀 How to Run Analysis
+Open VS Code Terminal or Command Prompt
+
+Navigate to the dataset folder:
+
+bash
+Copy code
+cd "C:\Users\solai prakash\Videos\ELEVATELABS\TASK 4\dataset"
+Start SQLite and create the database:
+
+bash
+Copy code
+sqlite3 sales.db
+Import CSVs and run the SQL script:
+
+sql
+Copy code
+.mode csv
+.import "List of Orders.csv" orders
+.import "Order Details.csv" order_details
+.import "Sales target.csv" sales_target
+
+.read output.sql
+Output will be saved in output.txt (all queries and results)
+
+📂 Project Structure
+
+TASK 4/
+├── dataset/
+│   ├── List of Orders.csv
+│   ├── Order Details.csv
+│   ├── Sales target.csv
+│   └── sales.db
+├── Output/
+│   ├── output.sql          # SQL queries
+│   ├── output.txt          # Query results
+│   └── Screenshots/        # Screenshots of terminal outputs
+└── README.md               # Project documentation
+
