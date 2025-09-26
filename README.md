@@ -446,6 +446,7 @@ Products contributing most to revenue
 Regions meeting or missing sales targets
 
 Summary view (RegionalPerformance) provides quick decision-making insights
+
 ---
 💡 Business Recommendations
 Focus marketing and promotions on low-performing regions
@@ -455,15 +456,16 @@ Maintain inventory for high-demand products
 Track performance against targets regularly for better planning
 
 Use the SQL workflow as a repeatable analysis pipeline
+
 ---
 🚀 How to Run Analysis
 Open VS Code Terminal or Command Prompt
 
 Navigate to the dataset folder:
 
-cd "C:\Users\solai prakash\Videos\ELEVATELABS\TASK 4\dataset"
 Start SQLite and create the database:
 
+```sql
 sqlite3 sales.db
 Import CSVs and run the SQL script:
 
@@ -473,6 +475,8 @@ Import CSVs and run the SQL script:
 .import "Sales target.csv" sales_target
 
 .read output.sql
+
+```
 Output will be saved in output.txt (all queries and results)
 
 📂 Project Structure
