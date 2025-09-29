@@ -642,7 +642,7 @@ Markdown Observation:
 * Younger passengers had slightly better chances.
 
 * Higher fares correlated with survival.
----
+
 
 🟢 Deliverables
 
