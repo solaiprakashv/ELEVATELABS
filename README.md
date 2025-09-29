@@ -493,3 +493,169 @@ TASK 4/
 │   └── Screenshots/        # Screenshots of terminal outputs
 └── README.md               # Project documentation
 ```
+
+---
+---
+## 📊 Exploratory Data Analysis (EDA) - Task 5
+
+This task demonstrates **Exploratory Data Analysis (EDA)** using Python and Pandas on the **Titanic dataset**.  
+It is part of my learning journey to strengthen **data analysis, visualization, and insight generation skills**.
+
+---
+
+### 📌 Project Overview
+
+In this task, I performed a comprehensive analysis of the Titanic dataset to uncover patterns and relationships in passenger survival.  
+The main goals were to:
+
+- Understand **dataset structure and features**
+- Identify **missing values** and data quality issues
+- Explore **numerical and categorical distributions**
+- Visualize patterns in **survival by gender, class, age, and fare**
+- Summarize key **insights for decision-making**
+
+---
+
+### 🛠️ Tools & Libraries Used
+
+- **Python 3**  
+- **Pandas** – for data manipulation  
+- **Matplotlib & Seaborn** – for data visualization  
+
+Install dependencies:
+
+```bash
+pip install pandas matplotlib seaborn
+```
+
+🧾 Steps Performed
+1️⃣ Importing Libraries and Dataset
+```bash
+from google.colab import files
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Upload Titanic train dataset
+uploaded = files.upload()
+
+# Load dataset
+df = pd.read_csv("train.csv")
+df.head()
+```
+
+2️⃣ Basic Dataset Info
+```bash
+df.info()
+```
+
+3️⃣ Summary Statistics
+```bash
+df.describe()
+```
+
+4️⃣ Check Missing Values
+```bash
+df.isnull().sum()
+```
+
+5️⃣ Count Unique Values
+```bash
+df.nunique()
+```
+
+6️⃣ Age Distribution
+```bash
+sns.histplot(df['Age'].dropna(), kde=True)
+plt.title("Age Distribution")
+plt.show()
+```
+Observation: Most passengers are between 20–40 years old.
+
+7️⃣ Survival Count
+```bash
+sns.countplot(x='Survived', data=df)
+plt.title("Survival Count (0 = No, 1 = Yes)")
+plt.show()
+```
+Observation: More passengers did not survive than survived.
+
+8️⃣ Survival by Gender
+```bash
+sns.countplot(x='Sex', hue='Survived', data=df)
+plt.title("Survival by Gender")
+plt.show()
+```
+Observation: Females had a much higher survival rate than males.
+
+9️⃣ Survival by Passenger Class
+```bash
+sns.countplot(x='Pclass', hue='Survived', data=df)
+plt.title("Survival by Passenger Class")
+plt.show()
+```
+Observation: 1st class passengers survived more than 3rd class.
+
+🔟 Age vs Fare (Survival)
+```bash
+sns.scatterplot(x='Age', y='Fare', hue='Survived', data=df)
+plt.title("Age vs Fare (colored by Survival)")
+plt.show()
+```
+Observation: Wealthier passengers (higher Fare) had better survival chances.
+
+1️⃣1️⃣ Boxplot: Age vs Survival
+```bash
+sns.boxplot(x='Survived', y='Age', data=df)
+plt.title("Age vs Survival")
+plt.show()
+```
+Observation: Younger passengers show slightly better survival trends.
+
+1️⃣2️⃣ Correlation Heatmap
+```bash
+df_encoded = df.copy()
+df_encoded['Sex'] = df_encoded['Sex'].map({'male': 0, 'female': 1})
+
+plt.figure(figsize=(8,6))
+sns.heatmap(df_encoded.corr(), annot=True, cmap="coolwarm")
+plt.title("Correlation Heatmap")
+plt.show()
+```
+Observation: Gender and class strongly correlate with survival.
+
+1️⃣3️⃣ Pairplot (Optional)
+```bash
+sns.pairplot(df_encoded[['Survived','Age','Fare','Pclass','Sex']], hue='Survived')
+plt.show()
+```
+1️⃣4️⃣ Final Summary
+
+---
+Markdown Observation:
+* Survival strongly depended on gender and passenger class.
+
+* Females had higher survival rates than males.
+
+* 1st class passengers survived more than 3rd class.
+
+* Younger passengers had slightly better chances.
+
+* Higher fares correlated with survival.
+---
+
+🟢 Deliverables
+
+---
+* Notebook: .ipynb file with all code and observations
+
+* PDF Report: Use File → Print → Save as PDF in Colab
+---
+
+📂 Project Structure
+```bash
+TASK 5 - Titanic EDA/
+├── train.csv                 # Raw Titanic dataset
+├── Titanic_EDA.ipynb         # Colab notebook with EDA steps
+└── README.md                 # Project documentation
+```
