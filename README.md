@@ -659,3 +659,129 @@ TASK 5 - Titanic EDA/
 ├── Titanic_EDA.ipynb         # Colab notebook with EDA steps
 └── README.md                 # Project documentation
 ```
+
+---
+---
+
+## 📊 Sales Trend Analysis - Task 6
+
+This task demonstrates **sales trend analysis using Python and SQLite**, aimed at uncovering insights from an online sales dataset and performing data cleansing, aggregation, and visualization.  
+
+---
+
+### 📌 Project Overview
+
+In this task, I analyzed online sales data to:
+
+- Import and clean CSV datasets into SQLite  
+- Perform **data validation and cleansing**  
+- Analyze **sales trends by date, product category, and region**  
+- Generate **summary statistics and visualizations** for business insights  
+
+This task strengthens skills in **SQL querying, Python data analysis, and visualization**.  
+
+---
+
+### 🛠️ Tools & Libraries Used
+
+- **Python 3** – for data manipulation and analysis  
+- **Pandas & NumPy** – for cleaning and transforming data  
+- **Matplotlib & Seaborn** – for visualizations  
+- **SQLite 3** – for database operations  
+- **VS Code / SQLite CLI** – to run scripts and queries  
+
+Install Python dependencies:
+```bash
+pip install pandas numpy matplotlib seaborn
+🧾 Steps Performed
+1️⃣ Database Setup & CSV Import
+
+```bash
+
+-- Create sales table
+CREATE TABLE online_sales (
+    transaction_id INTEGER,
+    order_date TEXT,
+    product_category TEXT,
+    product_name TEXT,
+    amount REAL
+);
+
+-- Import CSV into SQLite
+.mode csv
+.import "online_sales.csv" online_sales
+```
+
+2️⃣ Data Cleaning
+```bash
+python
+
+import pandas as pd
+import sqlite3
+
+# Connect to SQLite database
+conn = sqlite3.connect('sales.db')
+df = pd.read_sql_query("SELECT * FROM online_sales", conn)
+
+# Check missing values
+print(df.isnull().sum())
+
+# Fill missing values
+df['amount'] = df['amount'].fillna(0)
+df['product_category'] = df['product_category'].fillna('Unknown')
+df['product_name'] = df['product_name'].fillna('Unknown')
+```
+
+3️⃣ Aggregations & Trend Analysis
+```bash
+python
+
+# Total sales by category
+category_sales = df.groupby('product_category')['amount'].sum().reset_index()
+
+# Sales trend over time
+df['order_date'] = pd.to_datetime(df['order_date'])
+daily_sales = df.groupby('order_date')['amount'].sum().reset_index()
+
+# Plot daily sales trend
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10,5))
+plt.plot(daily_sales['order_date'], daily_sales['amount'], marker='o')
+plt.title("Daily Sales Trend")
+plt.xlabel("Date")
+plt.ylabel("Total Sales")
+plt.xticks(rotation=45)
+plt.show()
+
+```
+---
+🎯 Key Insights Discovered
+Identified top-selling product categories
+
+Found peak sales periods by date
+
+Discovered regions with highest and lowest sales
+
+Highlighted trends useful for inventory and marketing decisions
+
+---
+
+💡 Business Recommendations
+Focus marketing campaigns on top-performing products
+
+Adjust inventory according to peak sales periods
+
+Target underperforming regions with promotions
+
+Use this analysis workflow for future sales tracking
+
+
+📂 Project Structure
+```bash
+TASK 6/
+├── dataset/
+│   └── online_sales.csv         # Raw sales dataset
+├── Task6.py                     # Python script for analysis
+├── sales.db                     # SQLite database (after import)
+└── README.md                    # Project documentation
+```
