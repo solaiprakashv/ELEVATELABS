@@ -785,3 +785,131 @@ TASK 6/
 ├── sales.db                     # SQLite database (after import)
 └── README.md                    # Project documentation
 ```
+
+---
+---
+## 📊 Basic Sales Summary with SQLite - Task 7
+
+This task demonstrates **basic sales analysis using Python and SQLite**.  
+It focuses on calculating **total quantity sold** and **total revenue per product** from a small sales dataset, and visualizing it using a simple **bar chart**.
+
+---
+
+### 📌 Project Overview
+
+In this task, I performed the following:
+
+- Created a **SQLite database** (`sales_data.db`) with a `sales` table  
+- Inserted **sample sales data** for multiple products  
+- Used **Python** to connect to the database and run SQL queries  
+- Calculated **total quantity** and **total revenue** per product  
+- Visualized the revenue per product using **matplotlib bar chart**  
+
+This task strengthens skills in **SQL queries inside Python**, **pandas DataFrame manipulation**, and **basic data visualization**.
+
+---
+
+### 🛠️ Tools & Libraries Used
+
+- **Python 3** – for database connection, querying, and visualization  
+- **SQLite 3** – for database storage  
+- **Pandas** – for loading SQL query results into DataFrame  
+- **Matplotlib** – for plotting a simple bar chart  
+
+Install Python dependencies:
+
+```bash
+pip install pandas matplotlib
+```
+
+🧾 Steps Performed
+1️⃣ Create Database and Insert Data
+```bash
+import sqlite3
+
+conn = sqlite3.connect("sales_data.db")
+cursor = conn.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS sales (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    product TEXT,
+    quantity INTEGER,
+    price REAL
+)
+""")
+
+cursor.executemany("INSERT INTO sales (product, quantity, price) VALUES (?, ?, ?)", [
+    ("Laptop", 2, 50000),
+    ("Phone", 5, 20000),
+    ("Tablet", 3, 15000),
+    ("Laptop", 1, 50000),
+    ("Phone", 2, 20000)
+])
+
+conn.commit()
+conn.close()
+print("✅ Database created with sample data")
+```
+
+2️⃣ Run SQL Query and Load Results in Python
+```bash
+import sqlite3
+import pandas as pd
+import matplotlib.pyplot as plt
+
+conn = sqlite3.connect("sales_data.db")
+
+query = """
+SELECT product, 
+       SUM(quantity) AS total_qty, 
+       SUM(quantity * price) AS revenue
+FROM sales
+GROUP BY product
+"""
+
+df = pd.read_sql_query(query, conn)
+print("📊 Sales Summary:\n")
+print(df)
+```
+
+3️⃣ Visualize Revenue by Product
+```bash
+df.plot(kind="bar", x="product", y="revenue", legend=False)
+plt.title("Revenue by Product")
+plt.ylabel("Revenue")
+plt.savefig("sales_chart.png")   # Save chart
+plt.show()
+
+conn.close()
+```
+
+---
+🎯 Key Insights Discovered
+
+Laptop: 3 units sold, total revenue ₹150,000
+
+Phone: 7 units sold, total revenue ₹140,000
+
+Tablet: 3 units sold, total revenue ₹45,000
+
+Revenue visualization helps quickly identify the top-earning product.
+
+---
+💡 Business Recommendations
+
+Focus marketing and sales efforts on top revenue-generating products
+
+Track inventory for products with high sales volume
+
+Use similar SQLite + Python workflow for other datasets
+
+---
+```bash
+📂 Project StructureTASK 7/
+├── create_db.py          # Script to create DB + insert sample data
+├── task7.py              # Python analysis script (query + chart)
+├── sales_data.db         # SQLite database (auto-created)
+├── sales_chart.png       # Revenue bar chart (auto-generated)
+└── README.md             # Project documentation
+```
