@@ -885,7 +885,7 @@ conn.close()
 ```
 
 ---
-🎯 Key Insights Discovered
+**🎯 Key Insights Discovered**
 
 Laptop: 3 units sold, total revenue ₹150,000
 
@@ -896,7 +896,7 @@ Tablet: 3 units sold, total revenue ₹45,000
 Revenue visualization helps quickly identify the top-earning product.
 
 ---
-💡 Business Recommendations
+**💡 Business Recommendations**
 
 Focus marketing and sales efforts on top revenue-generating products
 
