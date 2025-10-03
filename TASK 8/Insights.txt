@@ -1,0 +1,6 @@
+INSIGHTS – SuperStore Sales Dashboard
+
+1. West region had the highest total sales among all regions.  
+2. Technology category contributed the maximum revenue, followed by Furniture and Office Supplies.  
+3. Sales show clear peaks in December, indicating seasonal demand.  
+4. Central region showed the lowest profitability despite moderate sales.  
