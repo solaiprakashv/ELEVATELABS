@@ -913,3 +913,43 @@ Use similar SQLite + Python workflow for other datasets
 ├── sales_chart.png       # Revenue bar chart (auto-generated)
 └── README.md             # Project documentation
 ```
+
+
+---
+---
+
+## 📊 Superstore Sales Dashboard - Task 8
+
+This project demonstrates **data visualization and insights generation** using the Superstore dataset.  
+The analysis highlights **sales, profit trends, regional performance, and category breakdowns**.
+
+---
+
+### 📌 Project Overview
+- Dataset: **SuperStoreOrders.csv**
+- Tools Used: **Tableau, Python (for preprocessing), Excel**
+- Deliverables:  
+  - `SuperStore Sales Dashboard.pdf` → Exported dashboard insights  
+  - `SuperStoreOrders.twbx` → Tableau packaged workbook  
+  - `Insights.txt` → Key findings from analysis  
+
+---
+
+### 🔑 Key Insights
+- Regional sales trends with profit contribution.  
+- Category-level performance (Furniture, Technology, Office Supplies).  
+- Time-series view of **Order Date vs Sales & Profit**.  
+- Identification of **high-performing vs low-performing regions**.  
+
+---
+
+### 📂 Folder Structure
+```bash
+TASK 8/
+│── dataset/
+│ └── SuperStoreOrders.csv
+│── SuperStoreOrders.twbx
+│── SuperStore Sales Dashboard.pdf
+│── Insights.txt
+│── ~SuperStoreOrders__10656.twbr
+```
